@@ -7,25 +7,49 @@ type Eredmeny = NonNullable<ReturnType<typeof szamolKATA>>
 
 // ── TOOLTIP ───────────────────────────────────────────────────
 function Tooltip({ szoveg }: { szoveg: string }) {
-  const [lat, setLat] = useState(false)
+  const [pos, setPos] = useState<{ x: number; y: number } | null>(null)
   const ref = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const be  = () => setLat(true)
-    const ki  = () => setLat(false)
+
+    const be = () => {
+      const r = el.getBoundingClientRect()
+      setPos({
+        x: Math.min(r.left + r.width / 2, window.innerWidth - 130),
+        y: r.top - 8,
+      })
+    }
+    const ki = () => setPos(null)
+
     el.addEventListener('mouseenter', be)
     el.addEventListener('mouseleave', ki)
     el.addEventListener('focus',      be)
     el.addEventListener('blur',       ki)
-    return () => { el.removeEventListener('mouseenter', be); el.removeEventListener('mouseleave', ki) }
+    return () => {
+      el.removeEventListener('mouseenter', be)
+      el.removeEventListener('mouseleave', ki)
+      el.removeEventListener('focus',      be)
+      el.removeEventListener('blur',       ki)
+    }
   }, [])
 
   return (
     <span ref={ref} className={styles.infoWrap} tabIndex={0} role="button" aria-label={szoveg}>
       <span className={styles.infoGomb}>?</span>
-      {lat && <span className={styles.tooltip}>{szoveg}</span>}
+      {pos && (
+        <span
+          className={styles.tooltip}
+          style={{
+            left: Math.max(10, pos.x - 120),
+            top:  pos.y - 10,
+            transform: 'translateY(-100%)',
+          }}
+        >
+          {szoveg}
+        </span>
+      )}
     </span>
   )
 }
