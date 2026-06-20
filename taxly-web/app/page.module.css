@@ -1,0 +1,481 @@
+/* ── LAYOUT ── */
+.main { min-height: 100vh; background: var(--bg); }
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* ── NAV ── */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+}
+.logoDot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--teal);
+}
+.navCta {
+  background: var(--teal);
+  color: var(--white);
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.navCta:hover { background: #0e7490; }
+
+/* ── HERO ── */
+.hero {
+  padding: 72px 24px 56px;
+  text-align: center;
+  background: linear-gradient(160deg, #e0f7fa 0%, var(--bg) 50%, #fef9c3 100%);
+}
+.heroInner { max-width: 640px; margin: 0 auto; }
+.eyebrow {
+  display: inline-block;
+  background: var(--white);
+  border: 1px solid var(--teal-mid);
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+}
+.h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.h1Teal { color: var(--teal); }
+.heroSub {
+  font-size: 18px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ── VÁLTOZÁS BANNER ── */
+.valtozasBanner {
+  background: var(--lemon-lt);
+  border: 1px solid var(--lemon);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 16px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.valtozasTitle {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--lemon-dk);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.valtozasLista { display: flex; flex-direction: column; gap: 4px; }
+.valtozasElem  { display: flex; align-items: center; gap: 10px; }
+.valtozasDatum {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--white);
+  padding: 1px 8px;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+.valtozasSzoveg { font-size: 12px; color: var(--lemon-dk); }
+
+/* ── KALKULÁTOR SZEKCIÓ ── */
+.kalkSection { padding: 32px 0 64px; }
+.kalkGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .kalkGrid { grid-template-columns: 1fr; }
+}
+
+/* ── INPUT PANEL ── */
+.inputPanel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.panelCim {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+/* ── SLIDER ── */
+.sliderWrap { margin-bottom: 20px; }
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+.sliderLabel { font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+.sliderValue { font-size: 17px; font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+.slider {
+  width: 100%;
+  accent-color: var(--teal);
+  height: 4px;
+  cursor: pointer;
+}
+.sliderHint { font-size: 11px; color: var(--ink-faint); margin-top: 4px; }
+
+/* ── TEVÉKENYSÉG ── */
+.tevOpt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  transition: all 0.15s;
+}
+.tevOptAktiv {
+  border-color: var(--teal);
+  background: var(--teal-lt);
+}
+.radio {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+.radioAktiv { border-color: var(--teal); background: var(--teal); }
+.tevLabel { font-size: 13px; font-weight: 600; color: var(--ink); }
+.tevKtg   { font-size: 11px; color: var(--ink-faint); }
+
+/* ── HÓ GOMBOK ── */
+.hoGombok {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+.hoGomb {
+  flex: 1;
+  padding: 9px 0;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.hoGombAktiv {
+  border-color: var(--teal);
+  background: var(--teal-lt);
+  color: var(--teal);
+}
+
+/* ── KFT TOGGLE ── */
+.kftToggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 0;
+}
+.toggle {
+  width: 42px; height: 24px;
+  border-radius: 99px;
+  background: var(--teal-mid);
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggleAktiv { background: var(--teal); }
+.toggleBall {
+  position: absolute;
+  top: 3px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: left 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.toggle .toggleBall { left: 3px; }
+.toggleAktiv .toggleBall { left: 21px; }
+.toggleLabel { font-size: 14px; font-weight: 700; color: var(--ink); }
+.toggleSub   { font-size: 12px; color: var(--ink-faint); }
+
+/* ── EREDMÉNY PANEL ── */
+.eredmenyPanel { display: flex; flex-direction: column; gap: 10px; }
+
+/* ── MEGTAKARÍTÁS BANNER ── */
+.megtak {
+  background: var(--teal);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.megtakLabel  { font-size: 10px; font-weight: 700; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.megtakSzam   { font-size: 28px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.megtakJobb   { text-align: right; }
+.megtakSubLabel { font-size: 10px; opacity: 0.65; margin-bottom: 3px; }
+.megtakForma  { font-size: 14px; font-weight: 800; color: var(--lemon); }
+.megtakHavi   { font-size: 12px; opacity: 0.75; margin-top: 2px; }
+
+/* ── KATA BANNER ── */
+.kataBanner {
+  background: var(--lemon-lt);
+  border: 1px solid var(--lemon);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lemon-dk);
+}
+
+/* ── EREDMÉNY KÁRTYA ── */
+.kartya {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.kartyaLegjobb {
+  border-color: var(--szin, var(--teal));
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--szin, var(--teal)) 20%, transparent);
+}
+.kartyaFejlec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 10px;
+  cursor: pointer;
+}
+.kartyaFejlecBal { display: flex; align-items: center; gap: 10px; }
+.kartyaEmoji     { font-size: 22px; }
+.kartyaNev       { font-size: 15px; font-weight: 800; color: var(--ink); }
+.legjobb {
+  font-size: 9px;
+  font-weight: 800;
+  background: var(--szin, var(--teal));
+  color: white;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+.kartyaFejlecJobb { text-align: right; }
+.kartyaNetto { font-size: 20px; font-weight: 900; color: var(--szin, var(--teal)); font-variant-numeric: tabular-nums; }
+.kartyaHavi  { font-size: 12px; color: var(--ink-faint); }
+
+.progressWrap {
+  height: 4px;
+  background: var(--bg);
+  margin: 0 16px;
+}
+.progressBar { height: 100%; border-radius: 99px; transition: width 0.6s; }
+
+.kartyaMeta {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+/* ── RÉSZLETEK ── */
+.kartyaReszlet {
+  padding: 0 16px 12px;
+  border-top: 1px solid var(--border);
+}
+.tetelSor {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-bottom: 1px dashed var(--border);
+}
+.tetelErtek { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.tetelOsszeg {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  margin-top: 8px;
+  background: color-mix(in srgb, var(--szin, var(--teal)) 12%, transparent);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.megjegyzes {
+  margin-top: 8px;
+  background: var(--bg);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.kartyaToggle {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+/* ── CTA SZEKCIÓ ── */
+.ctaSection {
+  background: linear-gradient(135deg, #065f80, var(--teal), #0ea5c9);
+  padding: 72px 24px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  top: -100px; right: -60px;
+}
+.ctaInner { max-width: 520px; margin: 0 auto; position: relative; z-index: 1; }
+.ctaEyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.ctaH2 {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.ctaSub {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+.form {
+  display: flex;
+  gap: 10px;
+  max-width: 460px;
+  margin: 0 auto 12px;
+}
+@media (max-width: 480px) {
+  .form { flex-direction: column; }
+}
+.emailInput {
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  color: var(--ink);
+}
+.ctaGomb {
+  background: var(--lemon);
+  color: var(--lemon-dk);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.ctaGomb:hover { background: #fde047; }
+.ctaGomb:disabled { opacity: 0.7; cursor: default; }
+.siker {
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.ctaNote {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--ink);
+  color: var(--white);
+  padding: 32px 24px;
+  text-align: center;
+}
+.footerLogo {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.04em;
+  margin-bottom: 12px;
+}
+.footerLinks {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.footerLinks a {
+  color: var(--teal-mid);
+  text-decoration: none;
+}
+.footerLinks a:hover { color: white; }
+.footerLinks span { color: rgba(255,255,255,0.3); }
+.footerMeta { font-size: 11px; color: rgba(255,255,255,0.35); }
