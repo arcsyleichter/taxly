@@ -479,3 +479,160 @@
 .footerLinks a:hover { color: white; }
 .footerLinks span { color: rgba(255,255,255,0.3); }
 .footerMeta { font-size: 11px; color: rgba(255,255,255,0.35); }
+
+/* ── TOOLTIP ── */
+.infoWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.infoGomb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--teal-mid);
+  color: var(--teal);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.infoWrap:hover .infoGomb,
+.infoWrap:focus .infoGomb {
+  background: var(--teal);
+  color: white;
+}
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.55;
+  padding: 8px 12px;
+  border-radius: 10px;
+  width: 220px;
+  text-align: left;
+  z-index: 200;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  white-space: normal;
+}
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--ink);
+}
+
+/* ── FELIRATOZOTT SZÁM ── */
+.szamBlokk {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.szamCimke {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.szamErtek {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.szamNagy {
+  font-size: 22px;
+}
+
+/* ── KÁRTYA FEJLÉC – nettó és havi sorok ── */
+.nettoSor {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.nettoLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.haviSor {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+.haviLabel {
+  font-size: 10px;
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* ── META SOR ── */
+.metaElem {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+/* ── TEVÉKENYSÉG ── */
+.tevSzoveg { flex: 1; }
+.hoHint {
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: -10px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── ÁFA BANNER ── */
+.afaBanner {
+  background: #fff7ed;
+  border: 1px solid #ea580c40;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── TETEL NÉV ── */
+.tetelNev {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
